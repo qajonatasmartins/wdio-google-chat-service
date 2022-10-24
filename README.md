@@ -21,11 +21,14 @@ Example:
 
 ```
 services: [[GoogleChatService, {
-            webhook: 'https://chat.googleapis.com/v1/spaces/xxxxxxxxx/messages?key=xxxxxxxx&token=xxxxxxxxx'
+            webhook: 'https://chat.googleapis.com/v1/spaces/xxxxxxxxx/messages?key=xxxxxxxx&token=xxxxxxxxx',
+            notifyOnlyOnFailure: false //Send notification only on test failure
         }]
 ],
 ```
 
 ## Features
 
-- Support for mocha, jasmine and cucumber
+- Support for mocha
+- Error details
+- Send notification only on test failure

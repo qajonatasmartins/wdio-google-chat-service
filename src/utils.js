@@ -9,6 +9,9 @@ const { spec } = require('pactum'),
                             }`)
         }
     },
+    addTestFail = async function (tests, error) {
+        return await `\t❌ ${tests.title}\n\t\t${error}\n`
+    },
     testFail = async function (tests) {
         return `🐞 Tests execution failure \n\n${tests.length === 0 ? '\t- N/D\n' : tests} \n`
     },
@@ -20,5 +23,6 @@ const { spec } = require('pactum'),
 module.exports = {
     sendMessage,
     testFail,
-    testPass
+    testPass,
+    addTestFail
 }

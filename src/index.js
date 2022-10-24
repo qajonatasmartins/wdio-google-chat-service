@@ -1,4 +1,4 @@
-const { sendMessage, testFail, testPass } = require("./utils")
+const { sendMessage, testFail, testPass, addTestFail } = require("./utils")
 let passed = [], failed = [], resultTests = [], description = '🎯 Test execution\n\n'
 
 class GoogleChatService {
@@ -14,7 +14,9 @@ class GoogleChatService {
             await passed.push(`\t✅ ${test.title}\n`)
         }
         if (!result.passed) {
-            await failed.push(`\t❌ ${test.title}\n`)
+            let testError = result.error.message.replace(/[\u001b\u009b][-[+()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, ""),
+                format = '```'
+            await failed.push(await addTestFail(test, `${format}${testError}${format}`))
         }
     }
 
