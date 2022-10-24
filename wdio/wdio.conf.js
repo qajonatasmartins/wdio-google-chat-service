@@ -115,7 +115,7 @@ exports.config = {
     services: [
         ['chromedriver'],
         [GoogleChatService, {
-            webhook: 'https://chat.googleapis.com/v1/spaces/XXXXX/messages?key=XXXXX&token=xxxxxxx',
+            webhookUrl: 'https://chat.googleapis.com/v1/spaces/XXXXX/messages?key=XXXXX&token=xxxxxxx',
             notifyOnlyOnFailure: false
         }]
     ],

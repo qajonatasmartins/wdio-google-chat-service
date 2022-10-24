@@ -1,18 +1,18 @@
 # wdio-google-chat-service
 
-Webdriverio library to send test results as a slack notification/message to spaces do google chat.
+Biblioteca Webdriverio para enviar resultados de testes como notificação/mensagem de folga para espaços do google chat.
 
-## Installation
+## Instalação
 
 `npm install wdio-google-chat-service --save-dev`
 
-or 
+ou
 
 `yarn add wdio-google-chat-service`
 
-## Configuration
+## Configuração
 
-At first, import the service to wdio config file `wdio.conf.js`
+Primeiramente, importe o serviço para o arquivo de configuração wdio `wdio.conf.js`
 
 ```
 // wdio.conf.js
@@ -21,22 +21,32 @@ const slack = require('wdio-google-chat-service');
 
 Para usar o serviço, você precisa ter o url do webhook do google chat para enviar a notificação e adicionar o url em 'webhook'
 
-Example:
+Exemplo:
 
 ```
 services: [[GoogleChatService, {
-            webhook: 'https://chat.googleapis.com/v1/spaces/xxxxxxxxx/messages?key=xxxxxxxx&token=xxxxxxxxx',
-            notifyOnlyOnFailure: false //Send notification only on test failure
+            webhookUrl: 'https://chat.googleapis.com/v1/spaces/xxxxxxxxx/messages?key=xxxxxxxx&token=xxxxxxxxx',
+            notifyOnlyOnFailure: false //Enviar notificação apenas em caso de falha no teste
         }]
 ],
 ```
 
+## Obtendo o webhook do google chat
+
+Obs.: O google chat só possui o webhook para contas empresariais. Caso você use uma conta pessoal não deve ter a opção de webhook.
+
+1. Crie um espaço no google chat
+2. Clique na seta sobre o nome do espaco do chat
+3. Clique em [Gerenciar webhooks]
+4. Add um ou copie a Url do webhook apresentada.
+5. Cole a Url do webhook no service dentro da opção 'webhookUrl' conforme o exemplo acima.
+
 ## Features
 
-- Support for mocha
-- Error details
-- Send notification only on test failure
+- Suporte para o corredor do mocha
+- Detalhes de erro
+- Enviar notificação apenas em caso de falha no teste
 
-## Results
+## Resultado
 
 ![Test pass and fail](/wdio-google-chat-service/img/testPassAndFail.png)

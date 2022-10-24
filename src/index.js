@@ -41,7 +41,7 @@ class GoogleChatService {
             )
         }
 
-        await sendMessage(this.options.webhook, (resultTests.join('')).replace(/,/g, ""))
+        await sendMessage(this.options.webhookUrl, (resultTests.join('')).replace(/,/g, ""))
     }
 }
 

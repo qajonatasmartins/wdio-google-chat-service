@@ -1,8 +1,8 @@
 const { spec } = require('pactum'),
-    sendMessage = async function (webhook, message) {
+    sendMessage = async function (webhookUrl, message) {
         if (message !== '') {
             await spec()
-                .post(webhook)
+                .post(webhookUrl)
                 .withHeaders('Content-Type', 'application/json;charset=UTF-8')
                 .withBody(`{
                                 "text": "${message}"
