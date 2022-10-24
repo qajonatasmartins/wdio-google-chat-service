@@ -1,0 +1,13 @@
+{
+  "name": "wdio-google-chat-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/qajonatasmartins/wdio-google-chat-service.git",
+  "author": "Jonatas <Jonatas>",
+  "license": "MIT",
+  "dependencies": {
+    "@wdio/cli": "^7.25.2",
+    "mocha": "^10.1.0",
+    "pactum": "^3.2.3"
+  }
+}
