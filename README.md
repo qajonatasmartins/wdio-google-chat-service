@@ -4,7 +4,11 @@ Webdriverio library to send test results as a slack notification/message to spac
 
 ## Installation
 
-run `npm install wdio-google-chat-service --save-dev` or `yarn add wdio-google-chat-service`
+`npm install wdio-google-chat-service --save-dev`
+
+or 
+
+`yarn add wdio-google-chat-service`
 
 ## Configuration
 
@@ -32,3 +36,7 @@ services: [[GoogleChatService, {
 - Support for mocha
 - Error details
 - Send notification only on test failure
+
+## Results
+
+![Test pass and fail](/wdio-google-chat-service/img/testPassAndFail.png)
