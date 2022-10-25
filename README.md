@@ -1,52 +1,52 @@
 # wdio-google-chat-service
 
-Biblioteca Webdriverio para enviar resultados de testes como notificação/mensagem de folga para espaços do google chat.
+Webdriverio library to send test results as notification/off message to google chat spaces.
 
-## Instalação
+## Installation
 
 `npm install wdio-google-chat-service --save-dev`
 
-ou
+or
 
 `yarn add wdio-google-chat-service`
 
-## Configuração
+## settings
 
-Primeiramente, importe o serviço para o arquivo de configuração wdio `wdio.conf.js`
+First, import the service into the wdio configuration file `wdio.conf.js`
 
 ```
 // wdio.conf.js
 const slack = require('wdio-google-chat-service');
 ```
 
-Para usar o serviço, você precisa ter o url do webhook do google chat para enviar a notificação e adicionar o url em 'webhook'
+To use the service you need to have the google chat webhook url to send the notification and add the url in 'webhook'
 
-Exemplo:
+Example:
 
 ```
 services: [[GoogleChatService, {
             webhookUrl: 'https://chat.googleapis.com/v1/spaces/xxxxxxxxx/messages?key=xxxxxxxx&token=xxxxxxxxx',
-            notifyOnlyOnFailure: false //Enviar notificação apenas em caso de falha no teste
+            notifyOnlyOnFailure: false //Send notification only in case of test failure
         }]
 ],
 ```
 
-## Obtendo o webhook do google chat
+## Getting google chat webhook
 
-Obs.: O google chat só possui o webhook para contas empresariais. Caso você use uma conta pessoal não deve ter a opção de webhook.
+Note: Google chat only has the webhook for business accounts. If you use a personal account you should not have the webhook option.
 
-1. Crie um espaço no google chat
-2. Clique na seta sobre o nome do espaco do chat
-3. Clique em [Gerenciar webhooks]
-4. Add um ou copie a Url do webhook apresentada.
-5. Cole a Url do webhook no service dentro da opção 'webhookUrl' conforme o exemplo acima.
+1. Create a space on google chat
+2. Click the arrow on the chat space name
+3. Click [Manage Webhooks]
+4. Add one or copy the presented webhook Url.
+5. Paste the URL of the webhook in the service inside the option 'webhookUrl' as in the example above.
 
 ## Features
 
-- Suporte para o corredor do mocha
-- Detalhes de erro
-- Enviar notificação apenas em caso de falha no teste
+- Support for mocha runner
+- Error details
+- Send notification only in case of test failure
 
-## Resultado
+## Results
 
 ![Test pass and fail](/wdio-google-chat-service/img/testPassAndFail.png)
