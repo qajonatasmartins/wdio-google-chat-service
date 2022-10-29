@@ -49,4 +49,4 @@ Note: Google chat only has the webhook for business accounts. If you use a perso
 
 ## Results
 
-![Test pass and fail](/wdio-google-chat-service/img/testPassAndFail.png)
+![Test pass and fail](./img/testPassAndFail.png)
