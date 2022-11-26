@@ -2,7 +2,7 @@
     "name": "webdriverio-tests",
     "version": "0.1.0",
     "description": "",
-    "private": true,
+    "private": false,
     "keywords": [],
     "author": "",
     "license": "ISC",
