@@ -10,13 +10,26 @@ const { spec } = require('pactum'),
         }
     },
     addTestFail = async function (tests, error) {
-        return await `\t❌ ${tests.title}\n\t\t${error}\n`
+        try {
+            return `\t❌ ${tests.title}\n\t\t${error}\n`
+        } catch (error) {
+            return `the param 'tests' and 'error' is not difined`
+        }
+
     },
     testFail = async function (tests) {
-        return `🐞 Tests execution failure \n\n${tests.length === 0 ? '\t- N/D\n' : tests} \n`
+        try {
+            return `🐞 Tests execution failure \n\n${tests.length === 0 ? '\t- N/D\n' : tests} \n`
+        } catch (error) {
+            return `The param 'tests' is undefined. error: ${error}`
+        }
     },
     testPass = async function (tests) {
-        return `✔️ Tests run successfully \n\n${tests.length === 0 ? '\t- N/D\n' : tests}\n`
+        try {
+            return `✔️ Tests run successfully \n\n${tests.length === 0 ? '\t- N/D\n' : tests}\n`
+        } catch (error) {
+            return `The param 'tests' is undefined. error: ${error}`
+        }
     }
 
 

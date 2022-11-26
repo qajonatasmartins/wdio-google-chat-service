@@ -1,6 +1,6 @@
 {
   "name": "wdio-google-chat-service",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@wdio/cli": "^7.25.2",
+    "chai": "^4.3.7",
     "mocha": "^10.1.0",
     "pactum": "^3.2.3"
   },
@@ -28,6 +29,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": ""
+    "test": "mocha ./tests/**/**/**/**.test.js"
   }
 }

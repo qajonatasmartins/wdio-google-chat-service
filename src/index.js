@@ -1,22 +1,25 @@
 const { sendMessage, testFail, testPass, addTestFail } = require("./utils")
-let passed = [], failed = [], resultTests = [], description = '🎯 Test execution\n\n'
 
 class GoogleChatService {
 
-    constructor(options, caps, config) {
+    constructor(options, caps, config, passed = [], failed = [], resultTests = [], description = '🎯 Test execution\n\n') {
         this.options = options
         this.caps = caps
         this.config = config
+        this.passed = passed
+        this.failed = failed
+        this.resultTests = resultTests
+        this.description = description
     }
 
     async afterTest(test, context, result) {
         if (result.passed) {
-            await passed.push(`\t✅ ${test.title}\n`)
+            await this.passed.push(`\t✅ ${test.title}\n`)
         }
         if (!result.passed) {
             let testError = result.error.message.replace(/[\u001b\u009b][-[+()#;?]*(?:[0-9]{1,4}(?:;[0-9]{0,4})*)?[0-9A-ORZcf-nqry=><]/g, ""),
                 format = '```'
-            await failed.push(await addTestFail(test, `${format}${testError}${format}`))
+            await this.failed.push(await addTestFail(test, `${format}${testError}${format}`))
         }
     }
 
@@ -27,21 +30,21 @@ class GoogleChatService {
         }
 
         if (!this.options.notifyOnlyOnFailure) {
-            resultTests.push(
-                description,
-                await testPass(passed),
-                await testFail(failed)
+            this.resultTests.push(
+                this.description,
+                await testPass(this.passed),
+                await testFail(this.failed)
             )
         }
 
         if (this.options.notifyOnlyOnFailure && resultTests.length !== 0) {
-            resultTests.push(
-                description,
-                await testFail(failed)
+            this.resultTests.push(
+                this.description,
+                await testFail(this.failed)
             )
         }
 
-        await sendMessage(this.options.webhookUrl, (resultTests.join('')).replace(/,/g, ""))
+        await sendMessage(this.options.webhookUrl, (this.resultTests.join('')).replace(/,/g, ""))
     }
 }
 
