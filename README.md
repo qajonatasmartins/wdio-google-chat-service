@@ -46,7 +46,3 @@ Note: Google chat only has the webhook for business accounts. If you use a perso
 - Support for mocha runner
 - Error details
 - Send notification only in case of test failure
-
-## Results
-
-![Test pass and fail](./img/testPassAndFail.png)
