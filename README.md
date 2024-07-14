@@ -16,7 +16,7 @@ First, import the service into the wdio configuration file `wdio.conf.js`
 
 ```
 // wdio.conf.js
-const slack = require('wdio-google-chat-service');
+const GoogleChatService = require('wdio-google-chat-service');
 ```
 
 To use the service you need to have the google chat webhook url to send the notification and add the url in 'webhook'
